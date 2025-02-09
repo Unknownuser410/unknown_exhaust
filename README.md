@@ -1,9 +1,10 @@
 # 🔥 unknown_exhaust – Fahrzeug-Sounds individuell anpassen!
 
-# Mit diesem Script könnt ihr die Auspuff-Sounds eurer Autos dauerhaft ändern – einfach per Item-Nutzung! 🎶🚗
+Mit diesem Script könnt ihr die Auspuff-Sounds eurer Autos dauerhaft ändern – einfach per Item-Nutzung! 🎶🚗
 🔹 Dauerhafte Anpassung: Der Sound bleibt gespeichert.
 🔹 Item-basiertes System: Wechsel per einfachem Item-Use.
 🔹 Optional Jobgebunden: Nur bestimmte Berufe können Sounds ändern (wenn gewünscht).
+
 # 📌 Voraussetzungen (Dependencies)
 - ESX (getestet mit 1.10.5 und höher)
 - oxmysql
