@@ -24,4 +24,5 @@ In der Config könnt ihr einfach neue Items mit den zugehörigen Sounds definier
 - Solltet ihr ein Script zum Kennzeichen ändern haben, müsst ihr nach dem Kennzeichenwechsel folgendes Event ausführen:
 - TriggerServerEvent("unknown:platechange", oldplate, newplate)
 
+# Fazit
 🎵 Perfekt für Mechaniker-RP oder einfach, um euren Autos eine persönliche Note zu geben! 🚀🔥
