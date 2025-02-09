@@ -74,9 +74,9 @@ AddEventHandler("playerSpawned", function()
                         plate = k
                         if (#(pedcoords - carcoords) <= 200) and not exhausts[plate]['active'] then
 							exhausts[plate]['active'] = car 
-                            ForceUseAudioGameObject(car, exhausts[plate]['muffler'])
-							debug("Sound ["..exhausts[plate]['muffler'].."] Set for Plate: " ..plate)
-                        elseif not DoesEntityExist(exhausts[plate]['active']) or (#(pedcoords - carcoords) > 200) and exhausts[plate]['active'] or exhausts[plate]['muffler'] ~= v.muffler then 
+                            ForceUseAudioGameObject(car, exhausts[plate]['carsound'])
+							debug("Sound ["..exhausts[plate]['carsound'].."] Set for Plate: " ..plate)
+                        elseif not DoesEntityExist(exhausts[plate]['active']) or (#(pedcoords - carcoords) > 200) and exhausts[plate]['active'] or exhausts[plate]['carsound'] ~= v.carsound then 
                             exhausts[plate]['active'] = false
 							debug("Sound Removed for Plate: " ..plate) 
                         end
