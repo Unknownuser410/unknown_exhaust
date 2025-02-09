@@ -20,4 +20,8 @@ In der Config könnt ihr einfach neue Items mit den zugehörigen Sounds definier
 - 3️⃣ Der neue Sound wird automatisch gespeichert und der alte Auspuff als Item zurückgegeben.
 - 4️⃣ Falls ihr zurück zum Standard-Sound wollt, nutzt einfach das "defaultexhaust"-Item.
 
+# ⚠️ Wichtig
+- Solltet ihr ein Script zum Kennzeichen ändern haben, müsst ihr nach dem Kennzeichenwechsel folgendes Event ausführen:
+- TriggerServerEvent("unknown:platechange", oldplate, newplate)
+
 🎵 Perfekt für Mechaniker-RP oder einfach, um euren Autos eine persönliche Note zu geben! 🚀🔥
