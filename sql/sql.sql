@@ -1,0 +1,1 @@
+ALTER TABLE `owned_vehicles` ADD COLUMN `exhaust` varchar(100) DEFAULT NULL;
