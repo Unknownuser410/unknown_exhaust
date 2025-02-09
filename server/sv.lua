@@ -1,12 +1,12 @@
 ESX = exports['es_extended']:getSharedObject()
 
 --Exhaust System--
-local mufflers = {}
+local sounds = {}
 
 
 --Get Sounds--
 ESX.RegisterServerCallback("unknown_exhaust:getcarsounds", function(source, cb, plate)
-	cb(mufflers)
+	cb(sounds)
 end)
 ------------------------
 
@@ -29,11 +29,11 @@ Citizen.CreateThread(function()
 		        local plate = v.plate
                 local exhaust = v.exhaust
                 
-                if mufflers[plate] == nil then
-                    mufflers[plate] = {}
+                if sounds[plate] == nil then
+                    sounds[plate] = {}
                 end
 
-                mufflers[plate].muffler = exhaust
+                sounds[plate].carsound = exhaust
             end
         end
 	end)
@@ -67,11 +67,11 @@ RegisterNetEvent("unknown_changeexhaust", function(sound, plate, item)
     if sound ~= nil and veh ~= 0 then
 
         --Check if Plate is registered and register--
-        if mufflers[plate] == nil then
-            mufflers[plate] = {}
+        if sounds[plate] == nil then
+            sounds[plate] = {}
         end
 
-        mufflers[plate].muffler = sound
+        sounds[plate].carsound = sound
         ----------------------------------------------
 
 
@@ -108,7 +108,7 @@ RegisterNetEvent("unknown_changeexhaust", function(sound, plate, item)
             -----------------------------------
 
             --Send Sounds to Clients--
-            TriggerClientEvent("unknown_exhaust:updatesounds", -1, mufflers)
+            TriggerClientEvent("unknown_exhaust:updatesounds", -1, sounds)
         else
             xPlayer.showNotification(locales["not_owned"])
         end
@@ -121,13 +121,13 @@ end)
 RegisterNetEvent("unknown:platechange", function(oldplate, newplate)
     oldplate = oldplate:match("^%s*(.-)%s*$")
 
-    if mufflers[oldplate] then
-        mufflers[newplate] = mufflers[oldplate]
-        mufflers[oldplate] = nil
+    if sounds[oldplate] then
+        sounds[newplate] = sounds[oldplate]
+        sounds[oldplate] = nil
     end
 
     --Reset on all Players--
-    TriggerClientEvent("unknown_exhaust:updatesounds", -1, mufflers)
+    TriggerClientEvent("unknown_exhaust:updatesounds", -1, sounds)
     -------------------------
 end)
 -----------------
