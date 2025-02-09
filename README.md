@@ -11,8 +11,8 @@ Mit diesem Script könnt ihr die Auspuff-Sounds eurer Autos dauerhaft ändern �
 
 # 🛠️ So funktioniert’s
 In der Config könnt ihr einfach neue Items mit den zugehörigen Sounds definieren:
-["itemname"] = "soundname", -- Beispiel
-["sportexhaust"] = "drafter", -- Beispiel2
+- ["itemname"] = "soundname", -- Beispiel
+- ["sportexhaust"] = "drafter", -- Beispiel2
 
 # 🚀 Anwendung im Spiel
 - 1️⃣ Setzt euch in ein Fahrzeug, das in der owned_vehicles-Datenbank gespeichert ist.
