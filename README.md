@@ -15,9 +15,9 @@ In der Config könnt ihr einfach neue Items mit den zugehörigen Sounds definier
 ["sportexhaust"] = "drafter", -- Beispiel2
 
 # 🚀 Anwendung im Spiel
-1️⃣ Setzt euch in ein Fahrzeug, das in der owned_vehicles-Datenbank gespeichert ist.
-2️⃣ Verwendet das entsprechende Item (z. B. ein Sportauspuff-Item).
-3️⃣ Der neue Sound wird automatisch gespeichert und der alte Auspuff als Item zurückgegeben.
-4️⃣ Falls ihr zurück zum Standard-Sound wollt, nutzt einfach das "defaultexhaust"-Item.
+- 1️⃣ Setzt euch in ein Fahrzeug, das in der owned_vehicles-Datenbank gespeichert ist.
+- 2️⃣ Verwendet das entsprechende Item (z. B. ein Sportauspuff-Item).
+- 3️⃣ Der neue Sound wird automatisch gespeichert und der alte Auspuff als Item zurückgegeben.
+- 4️⃣ Falls ihr zurück zum Standard-Sound wollt, nutzt einfach das "defaultexhaust"-Item.
 
 🎵 Perfekt für Mechaniker-RP oder einfach, um euren Autos eine persönliche Note zu geben! 🚀🔥
