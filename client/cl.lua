@@ -47,47 +47,41 @@ end)
 
 
 --Load Car Sounds on Spawn--
-AddEventHandler("playerSpawned", function()
-	Wait(3000) --Debug
-	if not activated then
-		activated = true
+Citizen.CreateThread(function()
+	Wait(1000) --Debug for Serverside to load
 
-		ESX.TriggerServerCallback("unknown_exhaust:getcarsounds", function(soundtable)
-			exhausts = soundtable
-		end)
+	ESX.TriggerServerCallback("unknown_exhaust:getcarsounds", function(soundtable)
+		exhausts = soundtable
+	end)
 
-		Wait(1000)
+	debug("Exhaustscript geladen!")
 
-		debug("Exhaustscript geladen!")
+	--Thread to Check if Player is near car and needs Sound--
+    while true do 
+        local cars = GetGamePool('CVehicle')
 
-		--Thread to Check if Player is near car and needs Sound--
-        while true do 
-            local cars = GetGamePool('CVehicle')
-
-            for i = 1, #cars do
-                local car = cars[i]
-				local carcoords = GetEntityCoords(car)
-				local pedcoords = GetEntityCoords(PlayerPedId())
-                local plate = trimAndNormalize(GetVehicleNumberPlateText(car))
-                for k,v in pairs(exhausts) do
-                    if trimAndNormalize(k) == plate then
-                        plate = k
-                        if (#(pedcoords - carcoords) <= 200) and not exhausts[plate]['active'] then
-							exhausts[plate]['active'] = car 
-                            ForceUseAudioGameObject(car, exhausts[plate]['carsound'])
-							debug("Sound ["..exhausts[plate]['carsound'].."] Set for Plate: " ..plate)
-                        elseif not DoesEntityExist(exhausts[plate]['active']) or (#(pedcoords - carcoords) > 200) and exhausts[plate]['active'] or exhausts[plate]['carsound'] ~= v.carsound then 
-                            exhausts[plate]['active'] = false
-							debug("Sound Removed for Plate: " ..plate) 
-                        end
+        for i = 1, #cars do
+            local car = cars[i]
+			local carcoords = GetEntityCoords(car)
+			local pedcoords = GetEntityCoords(PlayerPedId())
+            local plate = trimAndNormalize(GetVehicleNumberPlateText(car))
+            for k,v in pairs(exhausts) do
+                if trimAndNormalize(k) == plate then
+                    plate = k
+                    if (#(pedcoords - carcoords) <= 200) and not exhausts[plate]['active'] then
+						exhausts[plate]['active'] = car 
+                        ForceUseAudioGameObject(car, exhausts[plate]['carsound'])
+						debug("Sound ["..exhausts[plate]['carsound'].."] Set for Plate: " ..plate)
+                    elseif not DoesEntityExist(exhausts[plate]['active']) or (#(pedcoords - carcoords) > 200) and exhausts[plate]['active'] or exhausts[plate]['carsound'] ~= v.carsound then 
+                        exhausts[plate]['active'] = false
+						debug("Sound Removed for Plate: " ..plate) 
                     end
                 end
             end
-            Wait(1000)
         end
-        ---------------------------------
-
-	end
+        Wait(1000)
+    end
+    ---------------------------------
 end)
 ----------------
 
