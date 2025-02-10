@@ -3,7 +3,7 @@ game "gta5"
 
 author "Unknown_user410"
 description "Exhaustscript"
-version "1.0.0"
+version "1.1.0"
 
 shared_scripts {
     'config.lua',
