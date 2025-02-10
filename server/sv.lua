@@ -22,7 +22,7 @@ end
 
 --Script Start Load Cars and Sync--
 Citizen.CreateThread(function()
-    Wait(1000) --Debug
+    Wait(500) --Debug
     MySQL.Async.fetchAll('SELECT * FROM owned_vehicles', function (result)
         for k,v in pairs(result) do
             if v.exhaust then
