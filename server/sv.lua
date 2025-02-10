@@ -142,10 +142,12 @@ Citizen.CreateThread(function()
         if error == 200 then
             local data = json.decode(result)  -- JSON antwort decodieren
             local latestVersion = data.tag_name  -- Die neueste Version vom GitHub Release
+            local changelog = data.body or ""
             latestVersion = latestVersion:match("^v?(.*)") -- Entferne das 'v' von der GitHub-Version, falls vorhanden
+            changelog = changelog:gsub("#", "") -- Entferne das '#' vom Changelog, falls vorhanden
 
             if latestVersion ~= currentVersion then
-                print("Es gibt eine neue Version! ^1Aktuelle Version: " ..currentVersion.. "^0 | ^2Neueste Version: " ..latestVersion.."^0")
+                print("Es gibt eine neue Version! ^1Aktuelle Version: " ..currentVersion.. "^0 | ^2Neueste Version: " ..latestVersion.."^0", "\n^2Changelog:^0\n" ..changelog)
             end
         else
             print("Fehler beim Abrufen der GitHub-Daten: " .. error)
